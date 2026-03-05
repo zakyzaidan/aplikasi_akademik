@@ -148,17 +148,10 @@ class DatabaseHelper {
     final dataToInsert = Map<String, dynamic>.from(ujian);
     dataToInsert.remove('id_ujian');
 
-    print('=== INSERT UJIAN ===');
-    print('Data yang dikirim: $ujian');
-    print('Keys: ${ujian.keys.toList()}');
-    print('Values: ${ujian.values.toList()}');
-
     try {
       final result = await db.insert('ujian', dataToInsert);
-      print('Insert berhasil dengan ID: $result');
       return result;
     } catch (e) {
-      print('Error insert: $e');
       rethrow;
     }
   }
